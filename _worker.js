@@ -34,7 +34,7 @@ let timestamp = 4102329600000;
 const regex = /^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\[.*\]):?(\d+)?#?(.*)?$/;
 let fakeUserID;
 let fakeHostName;
-let httpsPorts = ["2053", "2083", "2087", "2096", "8443"];
+let httpsPorts = ["2053", "2083", "2087", "2096", "8"];
 let 有效时间 = 7;
 let 更新时间 = 3;
 let MamaJustKilledAMan = ['telegram', 'twitter', 'miaoko'];
@@ -78,7 +78,7 @@ async function 整理优选列表(api) {
 
 				const lines = content.split(/\r?\n/);
 				let 节点备注 = '';
-				let 测速端口 = '443';
+				let 测速端口 = '8443';
 
 				if (lines[0].split(',').length > 3) {
 					const idMatch = api[index].match(/id=([^&]*)/);
@@ -106,7 +106,7 @@ async function 整理优选列表(api) {
 									return baseItem;
 								}
 							} else {
-								return `${baseItem}:443`;
+								return `${baseItem}:8443`;
 							}
 							return null; // 不符合条件时返回 null
 						}).filter(Boolean)); // 过滤掉 null 值
@@ -845,7 +845,7 @@ export default {
 						}
 					}
 				}
-				if (port == "-1") port = "443";
+				if (port == "-1") port = "8443";
 
 				//console.log(address, port, addressid);
 
